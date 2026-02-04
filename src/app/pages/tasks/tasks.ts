@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TasksService } from '../../services/TasksService';
+import { Task } from '../../models/tasks';
 
 @Component({
   selector: 'app-tasks',
@@ -19,9 +21,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 })
 
 export class Tasks {
-  tasks = [
-    { id: 1, title: 'Estudar Angular', done: false },
-    { id: 2, title: 'Criar dashboard', done: true },
-    { id: 3, title: 'Subir projeto no GitHub', done: false }
-  ];
+  tasks: Task[] = [];
+  constructor(private tasksService: TasksService) {
+    this.tasks = this.tasksService.getTasks();
+  }
 }

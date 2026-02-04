@@ -1,7 +1,7 @@
 <h2>Tasks</h2>
 
 <mat-card *ngFor="let task of tasks" class="task-card">
-  <mat-checkbox [(ngModel)]="task.done">
-    {{ task.title }}
-  </mat-checkbox>
+    <mat-checkbox [(ngModel)]="task.done">
+        {{ task.title }}
+    </mat-checkbox>
 </mat-card>
