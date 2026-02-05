@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { TasksService } from '../../services/TasksService';
 import { Task } from '../../models/tasks';
 
+type TaskFilter = 'all' | 'pending' | 'completed';
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -28,6 +30,8 @@ export class Tasks {
   tasks: Task[] = [];
   newTaskTitle = '';
 
+  currentFilter: TaskFilter = 'all';
+
   constructor(private tasksService: TasksService) {
     this.tasks = this.tasksService.getTasks();
   }
@@ -40,6 +44,22 @@ export class Tasks {
 
   deleteTask(id: number): void {
     this.tasksService.deleteTask(id);
+  }
+
+  setFilter(filter: TaskFilter): void {
+    this.currentFilter = filter;
+  }
+
+  get filteredTasks(): Task[] {
+    if (this.currentFilter === 'pending') {
+      return this.tasks.filter(task => !task.done);
+    }
+
+    if (this.currentFilter === 'completed') {
+      return this.tasks.filter(task => task.done);
+    }
+
+    return this.tasks;
   }
 
   get completedTasks(): number {

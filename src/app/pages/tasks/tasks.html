@@ -4,6 +4,33 @@
     Concluídas: {{ completedTasks }} / {{ tasks.length }}
 </p>
 
+<div class="filters">
+    <button 
+    mat-button
+    [color]="currentFilter === 'all' ? 'primary' : undefined"
+    (click)="setFilter('all')"
+    >
+        Todas
+    </button>
+
+    <button 
+    mat-button
+    [color]="currentFilter == 'pending' ? 'primary' : undefined"
+    (click)="setFilter('pending')"
+    >
+        Pendentes
+    </button>
+
+    <button
+    mat-button
+    [color]="currentFilter === 'completed' ? 'primary' : undefined"
+    (click)="setFilter('completed')"
+    >
+        Concluídas
+    </button>
+    
+</div>
+
 <div class="add-task">
     <mat-form-field appearance="outline">
         <mat-label>Nova tarefa</mat-label>
