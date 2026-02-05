@@ -1,6 +1,22 @@
 <h2>Tasks</h2>
 
-<mat-card *ngFor="let task of tasks" class="task-card">
+<p>
+    Concluídas: {{ completedTasks }} / {{ tasks.length }}
+</p>
+
+<div class="add-task">
+    <mat-form-field appearance="outline">
+        <mat-label>Nova tarefa</mat-label>
+        <input matInput [(ngModel)]="newTaskTitle" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addTask()">
+        Adicionar
+    </button>
+</div>
+
+<mat-card *ngFor="let task of tasks" class="task-card" [class.done]="task.done">
+   
     <mat-checkbox [(ngModel)]="task.done">
         {{ task.title }}
     </mat-checkbox>
