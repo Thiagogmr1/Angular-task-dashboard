@@ -9,7 +9,7 @@ export class TasksService {
 
     private tasks: Task[] = [
         { id: 1, title: 'Estudar Angular', done: false },
-        { id: 2, title: 'Criar dashboard', done: true },
+        { id: 2, title: 'Criar dashboard', done: false },
         { id: 3, title: 'Subir projeto no GitHub', done: false }
     ];
 

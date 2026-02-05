@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { TasksService } from '../../services/TasksService';
 import { Task } from '../../models/tasks';
 
-type TaskFilter = 'all' | 'pending' | 'completed';
+export type TaskFilter = 'all' | 'pending' | 'completed';
 
 @Component({
   selector: 'app-tasks',
@@ -26,6 +26,7 @@ type TaskFilter = 'all' | 'pending' | 'completed';
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.scss']
 })
+
 export class Tasks {
   tasks: Task[] = [];
   newTaskTitle = '';
@@ -39,11 +40,13 @@ export class Tasks {
   addTask(): void {
     if (!this.newTaskTitle.trim()) return;
     this.tasksService.addTask(this.newTaskTitle);
+    this.tasks = this.tasksService.getTasks();
     this.newTaskTitle = '';
   }
 
   deleteTask(id: number): void {
     this.tasksService.deleteTask(id);
+    this.tasks = this.tasksService.getTasks();
   }
 
   setFilter(filter: TaskFilter): void {
