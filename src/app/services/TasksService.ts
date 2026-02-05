@@ -39,6 +39,11 @@ export class TasksService {
         this.save();
     }   
 
+    deleteTask(id: number): void {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        this.save();
+    }
+
     private save(): void {
         localStorage.setItem(this.storageKey, JSON.stringify(this.tasks));
     }

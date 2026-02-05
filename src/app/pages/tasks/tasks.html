@@ -16,8 +16,14 @@
 </div>
 
 <mat-card *ngFor="let task of tasks" class="task-card" [class.done]="task.done">
-   
-    <mat-checkbox [(ngModel)]="task.done">
-        {{ task.title }}
-    </mat-checkbox>
+    <div class="task-content">
+        
+        <mat-checkbox [(ngModel)]="task.done">
+            {{ task.title }}
+        </mat-checkbox>
+
+        <button mat-icon-button color="warn" (click)="deleteTask(task.id)" aria-label="Remover tarefa">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
 </mat-card>

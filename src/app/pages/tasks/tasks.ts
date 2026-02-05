@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { TasksService } from '../../services/TasksService';
 import { Task } from '../../models/tasks';
 
@@ -17,26 +18,28 @@ import { Task } from '../../models/tasks';
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   templateUrl: './tasks.html',
   styleUrls: ['./tasks.scss']
 })
-
 export class Tasks {
   tasks: Task[] = [];
-  newTaskTitle: string = '';
+  newTaskTitle = '';
 
   constructor(private tasksService: TasksService) {
     this.tasks = this.tasksService.getTasks();
   }
 
   addTask(): void {
-    if (this.newTaskTitle.trim()) {
+    if (!this.newTaskTitle.trim()) return;
+    this.tasksService.addTask(this.newTaskTitle);
+    this.newTaskTitle = '';
+  }
 
-      this.tasksService.addTask(this.newTaskTitle.trim());
-      this.newTaskTitle = '';
-    }
+  deleteTask(id: number): void {
+    this.tasksService.deleteTask(id);
   }
 
   get completedTasks(): number {
