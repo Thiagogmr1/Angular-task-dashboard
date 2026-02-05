@@ -45,7 +45,7 @@
 <mat-card *ngFor="let task of filteredTasks" class="task-card" [class.done]="task.done">
     <div class="task-content">
         
-        <mat-checkbox [(ngModel)]="task.done">
+        <mat-checkbox [checked]="task.done" (change)="toggleTask(task.id)">
             {{ task.title }}
         </mat-checkbox>
 

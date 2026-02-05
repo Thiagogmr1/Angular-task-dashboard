@@ -65,6 +65,12 @@ export class Tasks {
     return this.tasks;
   }
 
+  toggleTask(id: number): void {
+    this.tasksService.toggleTask(id);
+    this.tasks = this.tasksService.getTasks();
+  }
+
+
   get completedTasks(): number {
     return this.tasks.filter(task => task.done).length;
   }
