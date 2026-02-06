@@ -11,6 +11,14 @@
     <mat-sidenav-content>
         <mat-toolbar color="primary">
             <span>Task Dashboard</span>
+
+            <span class="spacer"></span>
+
+            <button mat-icon-button (click)="toggleTheme()">
+                <mat-icon>
+                    {{ theme.getTheme() ? 'light_mode' : 'dark_mode' }}
+                </mat-icon>
+            </button>
         </mat-toolbar>
 
         <main class="content">
