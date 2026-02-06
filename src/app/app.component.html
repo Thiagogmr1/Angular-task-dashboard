@@ -1,0 +1,9 @@
+<header class="app-header">
+    <button mat-icon-button (click)="themeService.toggleTheme()">
+        <mat-icon>
+            {{ themeService.isDarkMode() ? 'dark_mode' : 'light_mode' }}
+        </mat-icon>
+    </button>
+</header>
+
+<router-outlet></router-outlet>
