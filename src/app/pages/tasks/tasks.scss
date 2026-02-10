@@ -1,0 +1,29 @@
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.add-task {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.task-card {
+    margin-bottom: 12px;
+    transition: opacity 0.2s ease;
+    padding: 6px;
+    
+}
+
+.task-card.done {
+    opacity: 0.8;
+    text-decoration: line-through;
+}
+
+.task-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
