@@ -7,18 +7,33 @@
 .add-task {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .task-card {
-    margin-bottom: 12px;
-    transition: opacity 0.2s ease;
-    padding: 6px;
-    
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+
+    background: #ffffff;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease;
+
+}
+
+.task-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(6, 35, 176, 0.08);
 }
 
 .task-card.done {
-    opacity: 0.8;
+    opacity: 0.55;
+}
+
+.task-card.done .task-title {
     text-decoration: line-through;
 }
 
@@ -26,4 +41,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    gap: 12px;
 }
