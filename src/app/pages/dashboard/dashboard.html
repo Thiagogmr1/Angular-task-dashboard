@@ -1,29 +1,33 @@
-<h2>Dashboard</h2>
-<p>Visão geral das tarefas</p>
-<br>
+<div class="page-header">
+    <h2>Dashboard</h2>
+    <p>Visão geral das tarefas</p>
+</div>
 
-<h3>Progresso</h3>
+<section class="section">
+    <h3>Progresso</h3>
 
     <div class="progress-container">
         <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
     </div>
 
-<p>{{ progress }}% concluído</p>
-<br>
+    <p class="progress-text">{{ progress }}% concluído</p>
+</section>
 
-<h3>Próximas tarefas</h3>
+<section class="section">
+    <h3>Próximas tarefas</h3>
 
-<div class="top-tasks-container" *ngIf="top3pending.length; else empty">
-    <div class="task-card" *ngFor="let task of top3pending; let i = index">
-        <div class="task-rank">{{ i + 1 }}ª</div>
+    <div class="top-tasks-container" *ngIf="top3pending.length; else empty">
+        <div class="task-card" *ngFor="let task of top3pending; let i = index">
+            <div class="task-rank">{{ i + 1 }}ª</div>
 
-        <div class="task-content">
-            <p class="task-title">{{ task.title }}</p>
-            <span class="task-status">Pendente</span>
+            <div class="task-content">
+                <p class="task-title">{{ task.title }}</p>
+                <span class="task-status">Pendente</span>
+            </div>
         </div>
     </div>
-</div>
 
-<ng-template #empty>
-    <p>Nenhuma tarefa pendente 🎉</p>
-</ng-template>
+    <ng-template #empty>
+        <p>Nenhuma tarefa pendente 🎉</p>
+    </ng-template>
+</section>

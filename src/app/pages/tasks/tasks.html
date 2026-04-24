@@ -1,56 +1,71 @@
-<h2>Tasks</h2>
+<div class="page-header">
+  <h2>Tasks</h2>
+  <p>Concluídas: {{ completedTasks }} / {{ tasks.length }}</p>
+</div>
 
-<p>
-    Concluídas: {{ completedTasks }} / {{ tasks.length }}
-</p>
-
+<!-- FILTERS -->
 <div class="filters">
-    <button 
+  <button 
     mat-button
     [color]="currentFilter === 'all' ? 'primary' : undefined"
     (click)="setFilter('all')"
-    >
-        Todas
-    </button>
+  >
+    Todas
+  </button>
 
-    <button 
+  <button 
     mat-button
-    [color]="currentFilter == 'pending' ? 'primary' : undefined"
+    [color]="currentFilter === 'pending' ? 'primary' : undefined"
     (click)="setFilter('pending')"
-    >
-        Pendentes
-    </button>
+  >
+    Pendentes
+  </button>
 
-    <button
+  <button
     mat-button
     [color]="currentFilter === 'completed' ? 'primary' : undefined"
     (click)="setFilter('completed')"
-    >
-        Concluídas
-    </button>
-    
+  >
+    Concluídas
+  </button>
 </div>
 
+<!-- ADD TASK -->
 <div class="add-task">
-    <mat-form-field appearance="outline">
-        <mat-label>Nova tarefa</mat-label>
-        <input matInput [(ngModel)]="newTaskTitle" />
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="task-input">
+    <mat-label>Nova tarefa</mat-label>
+    <input matInput [(ngModel)]="newTaskTitle" />
+  </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="addTask()">
-        Adicionar
-    </button>
+  <button mat-raised-button color="primary" (click)="addTask()">
+    Adicionar
+  </button>
 </div>
 
-<mat-card *ngFor="let task of filteredTasks" class="task-card" [class.done]="task.done">
+<!-- LIST -->
+<div class="task-list">
+  <mat-card 
+    *ngFor="let task of filteredTasks"
+    class="task-card"
+    [class.done]="task.done"
+  >
     <div class="task-content">
-        
-        <mat-checkbox [checked]="task.done" (change)="toggleTask(task.id)">
-            {{ task.title }}
-        </mat-checkbox>
 
-        <button mat-icon-button color="warn" (click)="deleteTask(task.id)" aria-label="Remover tarefa">
-            <mat-icon>delete</mat-icon>
-        </button>
+      <mat-checkbox
+        [checked]="task.done"
+        (change)="toggleTask(task.id)"
+      >
+        {{ task.title }}
+      </mat-checkbox>
+
+      <button
+        mat-icon-button
+        color="warn"
+        (click)="deleteTask(task.id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+
     </div>
-</mat-card>
+  </mat-card>
+</div>
