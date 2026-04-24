@@ -6,6 +6,7 @@
 .sidenav {
     width: 220px;
     padding: 16px;
+    max-width: 80vw;
 }
 
 /* MOBILE */
@@ -56,13 +57,11 @@
 }
 
 mat-toolbar {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%;
     z-index: 10;
 }
 
 mat-sidenav-container {
-    padding-top: 14px;
     height: 100vh;
 }
