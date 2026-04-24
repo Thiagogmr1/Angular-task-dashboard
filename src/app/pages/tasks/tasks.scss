@@ -1,46 +1,90 @@
+/* FILTROS */
 .filters {
     display: flex;
     gap: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* evita quebrar no mobile */
 }
 
+/* INPUT + BOTÃO */
 .add-task {
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
+/* CARD */
 .task-card {
     display: flex;
     align-items: center;
-    padding: 10px 12px;
-    margin-bottom: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
 
     background: #ffffff;
-    border-radius: 12px;
+    border-radius: 14px;
 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
     transition: all 0.2s ease;
-
 }
 
-.task-card:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(6, 35, 176, 0.08);
+/* HOVER (desktop only) */
+@media (hover: hover) {
+    .task-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
 }
 
+/* TAREFA CONCLUÍDA */
 .task-card.done {
-    opacity: 0.55;
+    opacity: 0.6;
+    background: #f9f9f9;
 }
 
 .task-card.done .task-title {
     text-decoration: line-through;
+    color: #777;
 }
 
+/* CONTEÚDO */
 .task-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     gap: 12px;
+    min-width: 0;
+}
+
+/* TÍTULO */
+.task-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* AÇÕES (botões, ícones etc) */
+.task-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .task-card {
+        padding: 12px;
+    }
+
+    .task-title {
+        font-size: 14px;
+    }
 }
