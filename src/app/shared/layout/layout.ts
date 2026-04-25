@@ -10,6 +10,7 @@ import { AfterViewInit } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -22,7 +23,8 @@ import { CommonModule } from '@angular/common';
     MatListModule,
     MatButtonModule,
     MatIconModule,
-    LayoutModule 
+    LayoutModule,
+    RouterModule
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',

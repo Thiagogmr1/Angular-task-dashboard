@@ -26,7 +26,8 @@
 
             <mat-nav-list>
 
-                <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" (click)="closeIfMobile()">
+                <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
+                    (click)="closeIfMobile()">
                     <mat-icon matListItemIcon>dashboard</mat-icon>
                     <span matListItemTitle>Dashboard</span>
                 </a>
